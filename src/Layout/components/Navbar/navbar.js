@@ -20,7 +20,7 @@ import {
 	ListItemText,
 } from "@mui/material";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Alert Room", "Reviews", "Course", "Cart"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar(props) {
@@ -80,26 +80,8 @@ function Navbar(props) {
 					<Box
 						component="img"
 						src="/assets/logo.png"
-						sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+						sx={{ display: { xs: "none", md: "flex" }, mr: 1, width: "50px" }}
 					/>
-
-					<Typography
-						variant="h6"
-						noWrap
-						component="a"
-						href="/"
-						sx={{
-							mr: 2,
-							display: { xs: "none", md: "flex" },
-							fontFamily: "monospace",
-							fontWeight: 700,
-							letterSpacing: ".3rem",
-							color: "inherit",
-							textDecoration: "none",
-						}}
-					>
-						LOGO
-					</Typography>
 
 					<Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
 						<IconButton
