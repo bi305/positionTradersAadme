@@ -1,3 +1,1 @@
-const  Carousel =()=>{
-    
-}
+export { default } from "./Carousel";

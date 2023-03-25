@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-
 import createEmotionCache from "../utility/createEmotionCache";
+import { Layout } from "../Layout";
 import lightTheme from "../styles/theme/lightTheme";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "../styles/globals.css";
-import {Layout} from "../Layout";
 
 const clientSideEmotionCache = createEmotionCache();
 
