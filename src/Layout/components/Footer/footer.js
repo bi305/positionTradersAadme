@@ -10,6 +10,8 @@ const Footer = () => {
 				color: "white",
 				display: "flex",
 				justifyContent: "center",
+				pt: 30,
+				pb:10
 			}}
 		>
 			<Grid container maxWidth="xl">
@@ -40,21 +42,21 @@ const Footer = () => {
 							Help
 						</Typography>
 						<Typography component="p">Contact support</Typography>
-					
 					</Box>
 				</Grid>
 				<Grid item md={3}>
 					<Box>
 						<Typography component="h4" variant="h6">
-            Legal, Privacy and Security
+							Legal, Privacy and Security
 						</Typography>
-						<Typography component="p">Product</Typography>
-						<Typography component="p">Product</Typography>
-						<Typography component="p">Product</Typography>
-						<Typography component="p">Product</Typography>
-						<Typography component="p">Product</Typography>
-						<Typography component="p">Product</Typography>
-						<Typography component="p">Product</Typography>
+						<Typography component="p">Information Security Policy</Typography>
+						<Typography component="p">Privacy policy</Typography>
+						<Typography component="p">Cookie Policy</Typography>
+						<Typography component="p">Acceptable use policy</Typography>
+						<Typography component="p">Terms of service</Typography>
+						<Typography component="p">Data processing addendum</Typography>
+						<Typography component="p">Service Level Agreement</Typography>
+						<Typography component="p">Subprocessors list</Typography>
 					</Box>
 				</Grid>
 			</Grid>
