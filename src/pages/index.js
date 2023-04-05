@@ -3,17 +3,41 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { Container, Box, Typography, Grid, Button } from "@mui/material";
 import Slider from "react-slick";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Avatar, Rating } from "@mui/material";
 
 export default function Home() {
 	const settings = {
 		dots: true,
-		infinite: true,
+		infinite: false,
 		speed: 500,
-		slidesToShow: 3,
+		slidesToShow: 2,
 		slidesToScroll: 1,
-		centerPadding: "100px",
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					infinite: true,
+					dots: true,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					initialSlide: 1,
+				},
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
 	};
 
 	return (
@@ -89,7 +113,12 @@ export default function Home() {
 				</Container>
 				<Container
 					maxWidth={false}
-					sx={{ bgcolor: "#1B0D33", display: "flex", justifyContent: "center",p:10 }}
+					sx={{
+						bgcolor: "#1B0D33",
+						display: "flex",
+						justifyContent: "center",
+						p: 10,
+					}}
 				>
 					<Grid container maxWidth="md">
 						<Grid item md={12} textAlign="center">
@@ -101,60 +130,108 @@ export default function Home() {
 								are saying!
 							</Typography>
 						</Grid>
-						<Grid item md={12}>
-							<Box>
-								<Slider {...settings} arrows={false}>
+						<Grid item md={12} sm={12} xs={12}>
+							<Slider {...settings} arrows={false}>
+								<Box
+									sx={{
+										width: "396px !important",
+										height: "478px",
+										background: "rgba(86, 86, 146, 0.36)",
+										border: "1px solid #565692",
+										boxShadow: "0px 0px 25px #565692",
+										borderRadius: "73px",
+										p: 5,
+										color: "#ffffff",
+									}}
+								>
 									<Box>
 										<Box
-											sx={{
-												bgcolor: "purple",
-												padding: "100px",
-												margin: "15px",
-												height: "300px",
-											}}
+											sx={{ display: "flex", justifyContent: "space-between" }}
 										>
-											<h3>1</h3>
+											<Avatar
+												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
+												sx={{ width: 56, height: 56 }}
+											/>
+											<Rating name="read-only" value={5} readOnly />
 										</Box>
+										<Typography>
+											Tyler’s academy is the best around literally shows how he
+											trades in detail he has free webinars on there to watch
+											them religiously I would suggest for the best outcome.
+										</Typography>
 									</Box>
+								</Box>
+								<Box
+									sx={{
+										width: "396px !important",
+										height: "478px",
+										background: "rgba(86, 86, 146, 0.36)",
+										border: "1px solid #565692",
+										boxShadow: "0px 0px 25px #565692",
+										borderRadius: "73px",
+										p: 5,
+										color: "#ffffff",
+									}}
+								>
 									<Box>
 										<Box
-											sx={{
-												bgcolor: "purple",
-												padding: "100px",
-												margin: "15px",
-												height: "300px",
-											}}
+											sx={{ display: "flex", justifyContent: "space-between" }}
 										>
-											<h3>2</h3>
+											<Avatar
+												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
+												sx={{ width: 56, height: 56 }}
+											/>
+											<Rating name="read-only" value={5} readOnly />
 										</Box>
+										<Typography>
+											Tyler’s academy is the best around literally shows how he
+											trades in detail he has free webinars on there to watch
+											them religiously I would suggest for the best outcome.
+										</Typography>
 									</Box>
+								</Box>
+								<Box
+									sx={{
+										width: "396px !important",
+										height: "478px",
+										background: "rgba(86, 86, 146, 0.36)",
+										border: "1px solid #565692",
+										boxShadow: "0px 0px 25px #565692",
+										borderRadius: "73px",
+										p: 5,
+										color: "#ffffff",
+									}}
+								>
 									<Box>
 										<Box
-											sx={{
-												bgcolor: "purple",
-												padding: "100px",
-												margin: "15px",
-												height: "300px",
-											}}
+											sx={{ display: "flex", justifyContent: "space-between" }}
 										>
-											<h3>3</h3>
+											<Avatar
+												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
+												sx={{ width: 56, height: 56 }}
+											/>
+											<Rating name="read-only" value={5} readOnly />
 										</Box>
+										<Typography>
+											Tyler’s academy is the best around literally shows how he
+											trades in detail he has free webinars on there to watch
+											them religiously I would suggest for the best outcome.
+										</Typography>
 									</Box>
-									<Box>
-										<Box
-											sx={{
-												bgcolor: "purple",
-												padding: "100px",
-												margin: "15px",
-												height: "300px",
-											}}
-										>
-											<h3>4</h3>
-										</Box>
-									</Box>
-								</Slider>
-							</Box>
+								</Box>
+							</Slider>
 						</Grid>
+						 
+					</Grid>
+				</Container>
+				<Container>
+					<Grid item md={12} sm={12} xs={12} textAlign="center">
+						<Typography >
+							We're a Company You Can Grow With
+						</Typography>
+						<Typography variant="h2" >
+							Global Reach & Support
+						</Typography>
 					</Grid>
 				</Container>
 			</main>
