@@ -19,10 +19,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-<<<<<<< HEAD
-=======
 import FormDialog from "@/components/SigninModal/SigninModal";
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 
 const drawerWidth = 240;
 const navItems = ["Alert Room", "Reviews", "Course", "Cart"];
@@ -107,11 +104,6 @@ export default function PrimarySearchAppBar(props) {
 					Sign up
 				</Button>
 			</MenuItem>
-<<<<<<< HEAD
-		
-=======
-
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 			<MenuItem onClick={handleProfileMenuOpen}>
 				<IconButton
 					size="large"
@@ -201,16 +193,10 @@ export default function PrimarySearchAppBar(props) {
 							color="#656D78"
 						/>
 						<Typography sx={{ mx: 1 }}>Contact us</Typography>
-<<<<<<< HEAD
-						<Button sx={{ borderRadius: "20px", mx: 1 }} variant="outlined">
-							Sign in
-						</Button>
-=======
 						{/* <Button sx={{ borderRadius: "20px", mx: 1 }} variant="outlined">
 							Sign in
 						</Button> */}
-							<FormDialog />
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
+						<FormDialog />
 						<Button sx={{ borderRadius: "20px", mx: 1 }} variant="contained">
 							Sign up
 						</Button>

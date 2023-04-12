@@ -381,17 +381,6 @@ export default function Home() {
 								<Image src={B} />
 							</Box>
 						</Grid>
-						 
-					</Grid>
-				</Container>
-				<Container>
-					<Grid item md={12} sm={12} xs={12} textAlign="center">
-						<Typography >
-							We're a Company You Can Grow With
-						</Typography>
-						<Typography variant="h2" >
-							Global Reach & Support
-						</Typography>
 					</Grid>
 				</Container>
 			</main>
