@@ -13,11 +13,8 @@ import {
 } from "@mui/material";
 import Slider from "react-slick";
 import { Avatar, Rating } from "@mui/material";
-<<<<<<< HEAD
-=======
 import Image from "next/image";
 import B from "../../public/assets/b.png";
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 
 export default function Home() {
 	const settings = {
@@ -44,16 +41,6 @@ export default function Home() {
 					initialSlide: 1,
 				},
 			},
-<<<<<<< HEAD
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 1,
-				},
-			},
-=======
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 		],
 	};
 
@@ -157,11 +144,7 @@ export default function Home() {
 								<Box
 									sx={{
 										width: "396px !important",
-<<<<<<< HEAD
-										height: "478px",
-=======
 										height: "400px",
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 										background: "rgba(86, 86, 146, 0.36)",
 										border: "1px solid #565692",
 										boxShadow: "0px 0px 25px #565692",
@@ -176,13 +159,6 @@ export default function Home() {
 										>
 											<Avatar
 												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
-<<<<<<< HEAD
-												sx={{ width: 56, height: 56 }}
-											/>
-											<Rating name="read-only" value={5} readOnly />
-										</Box>
-										<Typography>
-=======
 												sx={{ width: 90, height: 90 }}
 											/>
 											<Box>
@@ -191,7 +167,6 @@ export default function Home() {
 											</Box>
 										</Box>
 										<Typography mt={5}>
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 											Tyler’s academy is the best around literally shows how he
 											trades in detail he has free webinars on there to watch
 											them religiously I would suggest for the best outcome.
@@ -201,11 +176,7 @@ export default function Home() {
 								<Box
 									sx={{
 										width: "396px !important",
-<<<<<<< HEAD
-										height: "478px",
-=======
 										height: "400px",
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 										background: "rgba(86, 86, 146, 0.36)",
 										border: "1px solid #565692",
 										boxShadow: "0px 0px 25px #565692",
@@ -220,16 +191,6 @@ export default function Home() {
 										>
 											<Avatar
 												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
-<<<<<<< HEAD
-												sx={{ width: 56, height: 56 }}
-											/>
-											<Rating name="read-only" value={5} readOnly />
-										</Box>
-										<Typography>
-											Tyler’s academy is the best around literally shows how he
-											trades in detail he has free webinars on there to watch
-											them religiously I would suggest for the best outcome.
-=======
 												sx={{ width: 90, height: 90 }}
 											/>
 											<Box>
@@ -243,18 +204,13 @@ export default function Home() {
 											that’s hitting all angles of the market. Sacrifice
 											everything right now to help yourself. You don’t wanna
 											wish you paid attention to Tyler.
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 										</Typography>
 									</Box>
 								</Box>
 								<Box
 									sx={{
 										width: "396px !important",
-<<<<<<< HEAD
-										height: "478px",
-=======
 										height: "400px",
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 										background: "rgba(86, 86, 146, 0.36)",
 										border: "1px solid #565692",
 										boxShadow: "0px 0px 25px #565692",
@@ -271,14 +227,6 @@ export default function Home() {
 												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
 												sx={{ width: 56, height: 56 }}
 											/>
-<<<<<<< HEAD
-											<Rating name="read-only" value={5} readOnly />
-										</Box>
-										<Typography>
-											Tyler’s academy is the best around literally shows how he
-											trades in detail he has free webinars on there to watch
-											them religiously I would suggest for the best outcome.
-=======
 											<Box>
 												<Rating name="read-only" value={5} readOnly />
 												<Typography component="p">Marcus</Typography>
@@ -290,13 +238,10 @@ export default function Home() {
 											the industry. We get a chatroom which is accessed by all
 											students and teachers who can help us 24/7. I am so
 											blessed I got in.
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 										</Typography>
 									</Box>
 								</Box>
 							</Slider>
-<<<<<<< HEAD
-=======
 						</Grid>
 					</Grid>
 				</Container>
@@ -435,7 +380,6 @@ export default function Home() {
 							<Box display="flex" justifyContent="end">
 								<Image src={B} />
 							</Box>
->>>>>>> 40f37955155995d6162ba8d6ee66c65ffdcf0d3c
 						</Grid>
 						 
 					</Grid>
