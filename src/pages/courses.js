@@ -16,8 +16,9 @@ const courses = () => {
             <Grid
               item
               md={12}
+              xs={12}
               sx={{
-                height: "1200px",
+                height: { md: "1200px", xs: "1000px", ms: "1000px" },
                 width: "100%",
                 backgroundImage: "url('/assets/mainbanner.png')",
                 backgroundRepeat: "no-repeat",
@@ -30,7 +31,11 @@ const courses = () => {
                   component="h2"
                   variant="h2"
                   color="inherit"
-                  sx={{ fontWeight: "600", py: "65px" }}
+                  sx={{
+                    fontWeight: "600",
+                    pt: "65px",
+                    textAlign: "center",
+                  }}
                 >
                   Crypto Currency
                 </Typography>
@@ -38,11 +43,12 @@ const courses = () => {
               <Grid
                 item
                 md={11.5}
+                xs={12}
                 sx={{
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "end",
-                  height: "600px",
+                  height: { md: "700px", xs: "500px" },
                 }}
               >
                 <Box component="ul">
@@ -68,37 +74,55 @@ const courses = () => {
                   </Box>
                 </Box>
               </Grid>
-              <Grid container sx={{ mt: 35 }}>
-                <Grid item md={6} display="flex" justifyContent="flex-end">
-                  <Button
-                    sx={{
-                      backgroundImage:
-                        "linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
+              <Grid
+                container
+                sx={{
+                  mt: { md: 20, xs: 20 },
+                  ml: { xs: 7 },
+                }}
+              >
+                <Grid
+                  item
+                  md={12}
+                  sx={{ display: "flex", justifyContent: "center" }}
+                >
+                  <Grid
+                    item
+                    md={6}
+                    xs={12}
+                    //   textAlign="end"
+                  >
+                    <Button
+                      sx={{
+                        backgroundImage:
+                          "linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
 
-                      borderRadius: "35px",
-                      color: "#fff",
-                      fontSize: "20px",
-                      px: "70px",
-                      py: "10px",
-                    }}
-                  >
-                    $400 Lifetime
-                  </Button>
-                </Grid>
-                <Grid item md={6}>
-                  <Button
-                    sx={{
-                      backgroundImage:
-                        "linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
-                      borderRadius: "35px",
-                      color: "#fff",
-                      fontSize: "20px",
-                      px: "70px",
-                      py: "10px",
-                    }}
-                  >
-                    $200/monthly
-                  </Button>
+                        borderRadius: "35px",
+                        color: "#fff",
+                        fontSize: "20px",
+                        px: "72px",
+                        py: "10px",
+                      }}
+                    >
+                      $400 Lifetime
+                    </Button>
+                  </Grid>
+                  <Grid item md={6} xs={12}>
+                    <Button
+                      sx={{
+                        backgroundImage:
+                          "linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
+                        borderRadius: "35px",
+                        color: "#fff",
+                        fontSize: "20px",
+                        px: "70px",
+                        py: "10px",
+                        mt: { xs: "5px" },
+                      }}
+                    >
+                      $200/monthly
+                    </Button>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
@@ -128,7 +152,7 @@ const courses = () => {
             container
             sx={{
               mt: 8,
-              height: { xs: "2500px", sm: "2000px", md: "1500px" },
+              height: { xs: "1500px", sm: "2000px", md: "1500px" },
               width: "100%",
               backgroundImage: "url('/assets/secondbanner.png')",
               backgroundRepeat: "no-repeat",
@@ -136,8 +160,8 @@ const courses = () => {
               backgroundPosition: "center",
             }}
           >
-            <Grid item md={12} sx={{}}>
-              <Box sx={{ pl: 15, pt: 25 }}>
+            <Grid item xs={12} sm={12} md={12}>
+              <Box sx={{ pl: { xs: 2.5, sm: 7.5, md: 15 }, pt: 25 }}>
                 <Typography
                   component="h1"
                   variant="h1"
@@ -220,6 +244,7 @@ const courses = () => {
                       fontSize: "20px",
                       px: { xs: "15px", sm: "35px", md: "70px" },
                       py: "10px",
+                      my: { xs: "10px" },
                       mr: 1,
                     }}
                   >
@@ -237,6 +262,7 @@ const courses = () => {
                       fontSize: "20px",
                       px: { xs: "15px", sm: "35px", md: "70px" },
                       py: "10px",
+                      my: { xs: "10px" },
                     }}
                   >
                     $400 Lifetime
@@ -268,7 +294,7 @@ const courses = () => {
           maxWidth={false}
           disableGutters
           sx={{
-            height: { xs: "2000px", sm: "1500px", md: "1000px" },
+            height: { xs: "1500px", sm: "1500px", md: "1000px" },
             width: "100%",
             backgroundImage: "url('/assets/thirdbanner.png')",
             backgroundRepeat: "no-repeat",
@@ -285,10 +311,10 @@ const courses = () => {
                 sx={{
                   backgroundColor: "rgba(238, 166, 231, 0.43)",
                   color: "#fff",
-                  width: "403px",
+                  width: { md: "403px", xs: "300px" },
                   height: "402px",
                   borderRadius: "45px",
-                  ml: 30,
+                  ml: { md: 30, sm: 20, xs: 5 },
                 }}
               >
                 <Box component="ul">
@@ -326,53 +352,78 @@ const courses = () => {
                 </Box>
               </Box>
             </Grid>
-            <Grid item md={6}>
-              <Box display="flex" alignItems="center" sx={{ mt: { md: 30 } }}>
-                <Button
-                  sx={{
-                    backgroundImage:
-                      "linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
+            <Grid item md={6} xs={12}>
+              <Grid container>
+                <Grid item md={4}>
+                  <Button
+                    sx={{
+                      backgroundImage:
+                        "linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
 
-                    borderRadius: "35px",
-                    color: "#fff",
-                    fontSize: "20px",
-                    px: { xs: "15px", sm: "35px", md: "70px" },
-                    py: "10px",
-                    mr: 1,
-                  }}
-                >
-                  $400 Lifetime
-                </Button>
-
-                <Button
+                      borderRadius: "35px",
+                      color: "#fff",
+                      fontSize: "20px",
+                      px: { xs: "15px", sm: "35px", md: "70px" },
+                      py: "10px",
+                      ml: { xs: "20px" },
+                      mt: { xs: "10px" },
+                      mr: 1,
+                    }}
+                  >
+                    $400 Lifetime
+                  </Button>
+                </Grid>
+                <Grid item md={4}>
+                  <Button
+                    sx={{
+                      backgroundImage:
+                        "linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
+                      borderRadius: "35px",
+                      color: "#fff",
+                      fontSize: "20px",
+                      px: { xs: "15px", sm: "35px", md: "70px" },
+                      py: "10px",
+                      mt: { xs: "10px" },
+                      mr: 1,
+                    }}
+                  >
+                    $200/Mothly
+                  </Button>
+                </Grid>
+                <Grid
+                  item
+                  md={12}
+                  sm={12}
+                  xs={12}
                   sx={{
-                    backgroundImage:
-                      "linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
-                    borderRadius: "35px",
-                    color: "#fff",
-                    fontSize: "20px",
-                    px: { xs: "15px", sm: "35px", md: "70px" },
-                    py: "10px",
-                    mr: 1,
+                    //   ml: { md: "20px", xs: 20 },
+                    mt: "40px",
+                    textAlign: "center",
                   }}
                 >
-                  $200/Mothly
-                </Button>
-              </Box>
-              <Grid item md={12} sx={{ ml: "20px", mt: "40px" }}>
-                <Typography
-                  component="h1"
-                  variant="h1"
-                  sx={{
-                    color: "#fff",
-                    fontSize: "90px",
-                    fontWeight: "700",
-                    // mt: "22px",
-                  }}
-                >
-                  STOCK <br /> TRADING
-                </Typography>
+                  <Typography
+                    component="h1"
+                    variant="h1"
+                    sx={{
+                      color: "#fff",
+                      fontSize: "90px",
+                      fontWeight: "700",
+                      // mt: "22px",
+                    }}
+                  >
+                    STOCK <br /> TRADING
+                  </Typography>
+                </Grid>
               </Grid>
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                sx={{
+                  mt: { md: 30, sm: "50px", xs: 20 },
+                  //   ml: { ms: 10, xs: 20 },
+                }}
+              ></Box>
             </Grid>
           </Grid>
         </Container>
