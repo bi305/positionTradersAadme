@@ -1,1 +1,1 @@
-export { default } from "./SigninModal";
+export{ default} from  './SigninModal'

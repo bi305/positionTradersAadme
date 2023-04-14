@@ -19,7 +19,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import FormDialog from "@/components/SigninModal/SigninModal";
+import FormDialog from "@/components/SignupModal/SignupModal";
 
 const drawerWidth = 240;
 const navItems = ["Alert Room", "Reviews", "Cart"];
@@ -198,13 +198,11 @@ export default function PrimarySearchAppBar(props) {
 							color="#656D78"
 						/>
 						<Typography sx={{ mx: 1 }}>Contact us</Typography>
-						{/* <Button sx={{ borderRadius: "20px", mx: 1 }} variant="outlined">
+
+						<Button sx={{ borderRadius: "20px", mx: 1 }} >
 							Sign in
-						</Button> */}
-						<FormDialog />
-						<Button sx={{ borderRadius: "20px", mx: 1 }} variant="contained">
-							Sign up
 						</Button>
+						<FormDialog />
 					</Box>
 					<Box sx={{ display: { xs: "flex", md: "none" } }}>
 						<IconButton

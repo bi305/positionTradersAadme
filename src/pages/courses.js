@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout } from "@/Layout";
-import { Container, Grid, Typography, Box ,Button} from "@mui/material";
+import { Container, Grid, Typography, Box, Button } from "@mui/material";
 import Head from "next/head";
 
 const courses = () => {
@@ -25,18 +25,19 @@ const courses = () => {
                 backgroundPosition: "center",
               }}
             >
-              <Box
-                display="flex"
-                justifyContent="center"
-               
-              >
-                <Typography component="h2" variant="h2" color="inherit"  sx={{ fontWeight: "600" ,py:"65px"}}>
+              <Box display="flex" justifyContent="center">
+                <Typography
+                  component="h2"
+                  variant="h2"
+                  color="inherit"
+                  sx={{ fontWeight: "600", py: "65px" }}
+                >
                   Crypto Currency
                 </Typography>
               </Box>
               <Grid
                 item
-                md={12}
+                md={11.5}
                 sx={{
                   display: "flex",
                   justifyContent: "center",
@@ -57,7 +58,7 @@ const courses = () => {
                   </Box>
                   <Box component="li">
                     <Typography sx={{ fontSize: "28px", fontWeight: "400" }}>
-                      CAHTROOM
+                      CHATROOM
                     </Typography>
                   </Box>
                   <Box component="li">
@@ -67,36 +68,38 @@ const courses = () => {
                   </Box>
                 </Box>
               </Grid>
-              <Grid
-                item
-                md={12}
-                sx={{ display: "flex", justifyContent: "center", mt: 22 }}
-              >
-                <Box sx={{}} >
-                  <Button 
-				  sx={{backgroundImage:"linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important"
-				,width:"300px"
-				,borderRadius:"35px"
-				,color:"#fff"
-				,fontSize:"20px"
-				,px:"16px"
-				}}>
-					$400 Lifetime
-					</Button>
-                </Box>
-				<Box sx={{}} >
-                  <Button 
-				  sx={{backgroundImage:"linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important"
-				,width:"300px"
-				,borderRadius:"35px"
-				,color:"#fff"
-				,fontSize:"20px"
-				,px:"16px"
-				,ml:"20px"
-				}}>
-					$200/Monthly
-					</Button>
-                </Box>
+              <Grid container sx={{ mt: 35 }}>
+                <Grid item md={6} display="flex" justifyContent="flex-end">
+                  <Button
+                    sx={{
+                      backgroundImage:
+                        "linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
+
+                      borderRadius: "35px",
+                      color: "#fff",
+                      fontSize: "20px",
+                      px: "70px",
+                      py: "10px",
+                    }}
+                  >
+                    $400 Lifetime
+                  </Button>
+                </Grid>
+                <Grid item md={6}>
+                  <Button
+                    sx={{
+                      backgroundImage:
+                        "linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
+                      borderRadius: "35px",
+                      color: "#fff",
+                      fontSize: "20px",
+                      px: "70px",
+                      py: "10px",
+                    }}
+                  >
+                    $200/monthly
+                  </Button>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
@@ -134,7 +137,30 @@ const courses = () => {
                 backgroundPosition: "center",
               }}
             >
-              <h1>hello</h1>
+              <Box>
+                <Typography
+                  component="h1"
+                  variant="h1"
+                  sx={{ color: "#FFFFFF", fontWeight: "500" }}
+                >
+                  Forex <br /> Trading
+                </Typography>
+                <Typography
+                  component="p"
+                  variant="p"
+                  sx={{ color: "#FFFFFF", mt: 8 }}
+                >
+                  The best forex signals in the industry with the best course
+                  <br /> with over 10 million downloads
+                </Typography>
+				<Typography component="ul" variant="ul">
+				<Typography component="li" variant="li"></Typography>
+				<Typography component="li" variant="li"></Typography>
+				<Typography component="li" variant="li"></Typography>
+				<Typography component="li" variant="li"></Typography>
+
+				</Typography>
+              </Box>
             </Grid>
           </Grid>
         </Container>
