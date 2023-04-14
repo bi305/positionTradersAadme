@@ -2,7 +2,8 @@ import React from "react";
 import { Layout } from "@/Layout";
 import { Container, Grid, Typography, Box } from "@mui/material";
 import Head from "next/head";
- 
+import { useUser } from "api";
+
 const courses = () => {
 	return (
 		<>
@@ -12,7 +13,7 @@ const courses = () => {
 
 			<Layout footer={false}>
 				<Container maxWidth={false} disableGutters>
-					<Grid Container sx={{ mt: 8 }}>
+					<Grid container sx={{ mt: 8 }}>
 						<Grid
 							item
 							md={12}
@@ -49,7 +50,7 @@ const courses = () => {
 					</Box>
 				</Container>
 				<Container maxWidth={false} disableGutters>
-					<Grid Container sx={{ mt: 8 }}>
+					<Grid container sx={{ mt: 8 }}>
 						<Grid
 							item
 							md={12}
@@ -85,7 +86,7 @@ const courses = () => {
 				</Container>
 
 				<Container maxWidth={false} disableGutters>
-					<Grid Container sx={{ mt: 8 }}>
+					<Grid container sx={{ mt: 8 }}>
 						<Grid
 							item
 							md={12}

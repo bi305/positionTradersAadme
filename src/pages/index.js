@@ -16,8 +16,10 @@ import { Avatar, Rating } from "@mui/material";
 import Image from "next/image";
 import B from "../../public/assets/b.png";
 import { Layout } from "@/Layout";
+import { useUser } from "api";
 
 export default function Home() {
+	console.log(useUser);
 	const settings = {
 		dots: true,
 		infinite: false,
