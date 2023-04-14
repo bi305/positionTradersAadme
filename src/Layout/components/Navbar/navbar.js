@@ -22,7 +22,7 @@ import ListItemText from "@mui/material/ListItemText";
 import FormDialog from "@/components/SigninModal/SigninModal";
 
 const drawerWidth = 240;
-const navItems = ["Alert Room", "Reviews", "Course", "Cart"];
+const navItems = ["Alert Room", "Reviews", "Cart"];
 export default function PrimarySearchAppBar(props) {
 	const { window } = props;
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -129,7 +129,12 @@ export default function PrimarySearchAppBar(props) {
 				{navItems.map((item) => (
 					<ListItem key={item} disablePadding>
 						<ListItemButton sx={{ textAlign: "center" }}>
-							<ListItemText primary={item} />
+							<ListItemText
+								primary={item}
+								onClick={() => {
+									"#review";
+								}}
+							/>
 						</ListItemButton>
 					</ListItem>
 				))}

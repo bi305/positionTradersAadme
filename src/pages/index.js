@@ -15,6 +15,7 @@ import Slider from "react-slick";
 import { Avatar, Rating } from "@mui/material";
 import Image from "next/image";
 import B from "../../public/assets/b.png";
+import { Layout } from "@/Layout";
 
 export default function Home() {
 	const settings = {
@@ -47,9 +48,10 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>Position Traders Acdme</title>
+				<title>Position Traders Academe</title>
 			</Head>
-			<main className={styles.main}>
+
+			<Layout>
 				<Container maxWidth={false} sx={{ bgcolor: "#1B0D33" }}>
 					<Box
 						textAlign="center"
@@ -117,6 +119,7 @@ export default function Home() {
 					</Box>
 				</Container>
 				<Container
+					id={"review"}
 					maxWidth={false}
 					sx={{
 						bgcolor: "#1B0D33",
@@ -155,7 +158,10 @@ export default function Home() {
 								>
 									<Box>
 										<Box
-											sx={{ display: "flex", justifyContent: "space-between" }}
+											sx={{
+												display: "flex",
+												justifyContent: "space-between",
+											}}
 										>
 											<Avatar
 												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
@@ -187,7 +193,10 @@ export default function Home() {
 								>
 									<Box>
 										<Box
-											sx={{ display: "flex", justifyContent: "space-between" }}
+											sx={{
+												display: "flex",
+												justifyContent: "space-between",
+											}}
 										>
 											<Avatar
 												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
@@ -221,7 +230,10 @@ export default function Home() {
 								>
 									<Box>
 										<Box
-											sx={{ display: "flex", justifyContent: "space-between" }}
+											sx={{
+												display: "flex",
+												justifyContent: "space-between",
+											}}
 										>
 											<Avatar
 												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
@@ -247,7 +259,11 @@ export default function Home() {
 				</Container>
 				<Container
 					maxWidth={false}
-					sx={{ bgcolor: "#F8FAFF", display: "flex", justifyContent: "center" }}
+					sx={{
+						bgcolor: "#F8FAFF",
+						display: "flex",
+						justifyContent: "center",
+					}}
 				>
 					<Grid container maxWidth="md" spacing={3} my={7}>
 						<Grid item md={12} sm={12} xs={12} textAlign="center" my={7}>
@@ -383,7 +399,7 @@ export default function Home() {
 						</Grid>
 					</Grid>
 				</Container>
-			</main>
+			</Layout>
 		</>
 	);
 }
