@@ -24,7 +24,7 @@ apiClient.interceptors.request.use((config) => {
 // Define API endpoints as functions that return Axios requests
 
 export function register(data) {
-	return apiClient.post("/register", data);
+	return apiClient.post("/register/", data);
 }
 
 export function login(data) {
@@ -38,7 +38,7 @@ export function logout() {
 // Define React Query hooks for each endpoint
 
 export function useRegister() {
-	const queryClient = useQueryClient();
+	// const queryClient = useQueryClient();
 	return useMutation(register, {
 		onSuccess: (response) => {
 			// Save user data to session storage
