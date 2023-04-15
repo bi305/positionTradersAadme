@@ -23,7 +23,7 @@ const cart = () => {
           color: "#fff",
         }}
       >
-        <Grid container spacing={3} sx={{ p: 10 }}>
+        <Grid container spacing={3} sx={{ p: 50 }}>
           <Grid item md={8} sx={{}}>
             <Box
               sx={{
@@ -31,6 +31,8 @@ const cart = () => {
                 borderRadius: "35px",
                 textAlign: "center",
                 px: "10px",
+                boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
+                border: "1px solid rgba(255, 255, 255, 0.26);",
               }}
             >
               <Typography
@@ -43,12 +45,16 @@ const cart = () => {
               <Typography
                 component="p"
                 variant="p"
-                sx={{ display: "flex", justifyContent: "end" }}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  fontSize: "28px",
+                }}
               >
                 billed $200/month
               </Typography>
             </Box>
-            <hr sx={{ height: "5px" }} />
+            <hr sx={{ p: "10px" }} />
             <Grid
               item
               md={12}
@@ -68,15 +74,16 @@ const cart = () => {
                   fontSize: "32px",
                   fontWeight: "500",
                   px: "40px",
-                  py: "10px",
+                  //   py: "10 px",
                   borderRadius: "35px",
+                  boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
                   border: "1px solid rgba(255, 255, 255, 0.26);",
                 }}
               >
                 Pay
               </Button>
             </Grid>
-            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Box sx={{ display: "flex" }}>
               <Typography
                 componet="h3"
                 variant="h3"
@@ -84,12 +91,15 @@ const cart = () => {
                   backgroundColor: " rgba(230, 189, 255, 0.37);",
                   color: "white",
                   fontWeight: "700",
-                  px: "20px",
-                  py: "10px",
+                  px: "60px",
+                  py: "8px",
+                  fontSize: "32px",
                   mt: 29,
+                  mr: 2,
                   borderRadius: "35px",
                   textAlign: "center",
-                  border: " 1px solid rgba(255, 255, 255, 0.26);",
+                  boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
+                  border: "1px solid rgba(255, 255, 255, 0.26);",
                 }}
               >
                 bc1qsf8u0f7404thpwzskqcz2nstg6yjefrfrwdan5
@@ -98,22 +108,23 @@ const cart = () => {
                 sx={{
                   backgroundColor: "rgba(230, 189, 255, 0.37);",
                   color: "white",
-                  fontSize: "32px",
+                  fontSize: "19px",
                   fontWeight: "600",
                   px: "40px",
-                  py: "10px",
+                  //   py: "0.5px",
                   mt: 29,
-                  borderRadius: "35px",
+                  borderRadius: "30px",
+                  boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
                   border: "1px solid rgba(255, 255, 255, 0.26);",
                 }}
               >
                 copy
               </Button>
             </Box>
-            <Grid item md={4}></Grid>
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sx={{ textAlign: "center" }}>
             <Box component="img" src="assets/WalletQr.png" />
+            <Typography component="p">scan to pay </Typography>
           </Grid>
         </Grid>
       </Container>
