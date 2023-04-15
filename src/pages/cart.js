@@ -24,7 +24,7 @@ const cart = () => {
         }}
       >
         <Grid container spacing={3} sx={{ p: 10 }}>
-          <Grid item md={8} sx={{}}>
+          <Grid item md={9} sx={{}}>
             <Box
               sx={{
                 backgroundColor: " rgba(230, 189, 255, 0.37);",
@@ -110,7 +110,7 @@ const cart = () => {
                 copy
               </Button>
             </Box>
-            <Grid item md={4}></Grid>
+            <Grid item md={2}></Grid>
           </Grid>
           <Grid item md={4}>
             <Box component="img" src="assets/WalletQr.png" />

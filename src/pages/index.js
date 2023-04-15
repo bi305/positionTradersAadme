@@ -270,7 +270,7 @@ export default function Home() {
 					<Grid container maxWidth="md" spacing={3} my={7}>
 						<Grid item md={12} sm={12} xs={12} textAlign="center" my={7}>
 							<Typography color="#662EFF">
-								We're a Company You Can Grow With
+								We are a Company You Can Grow With
 							</Typography>
 							<Typography variant="h3">Global Reach & Support</Typography>
 						</Grid>

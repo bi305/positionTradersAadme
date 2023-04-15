@@ -24,11 +24,11 @@ apiClient.interceptors.request.use((config) => {
 // Define API endpoints as functions that return Axios requests
 
 export function register(data) {
-	return apiClient.post("/register/", data);
+	return apiClient.post("/user/register/", data);
 }
 
 export function login(data) {
-	return apiClient.post("/login", data);
+	return apiClient.post("/user/login/", data);
 }
 
 export function logout() {
