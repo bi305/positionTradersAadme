@@ -11,10 +11,8 @@ const cart = () => {
       <Container
         maxWidth={false}
         disableGutters
-        pt={0}
-        mt={0}
         sx={{
-          height: "1400px",
+          height: { md: "1400px", ms: "1500px", xs: "1600px" },
           width: "100%",
           backgroundImage: "url('/assets/cartBanner.png')",
           backgroundRepeat: "no-repeat",
@@ -23,47 +21,52 @@ const cart = () => {
           color: "#fff",
         }}
       >
-        <Grid container spacing={3} sx={{ p: 50 }}>
-          <Grid item md={8} sx={{}}>
+        <Grid container spacing={3}>
+          <Grid item md={8} ms={12} xs={12}>
             <Box
               sx={{
                 backgroundColor: " rgba(230, 189, 255, 0.37);",
                 borderRadius: "35px",
-                textAlign: "center",
-                px: "10px",
                 boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
                 border: "1px solid rgba(255, 255, 255, 0.26);",
+                mt: { md: 30 },
+                ml: { md: 30 },
               }}
             >
-              <Typography
-                component="h2"
-                variant="h2"
-                sx={{ fontWeight: "700" }}
-              >
-                CryptoCurrency Alert Room - Monthly
-              </Typography>
-              <Typography
-                component="p"
-                variant="p"
-                sx={{
-                  display: "flex",
-                  justifyContent: "end",
-                  fontSize: "28px",
-                }}
-              >
-                billed $200/month
-              </Typography>
+              <Box sx={{ py: 1, px: 2 }}>
+                <Typography
+                  component="h2"
+                  sx={{
+                    fontWeight: "700",
+                    fontSize: { xs: "20px", md: "40px" },
+                  }}
+                >
+                  CryptoCurrency Alert Room - Monthly
+                </Typography>
+                <Typography
+                  component="p"
+                  variant="p"
+                  sx={{
+                    ml: "auto",
+                    fontSize: "28px",
+                  }}
+                >
+                  billed $200/month
+                </Typography>
+              </Box>
             </Box>
-            <hr sx={{ p: "10px" }} />
-            <Grid
-              item
-              md={12}
-              sx={{ display: "flex", justifyContent: "space-between" }}
+            <Box
+              sx={{
+                ml: { md: 30 },
+              }}
             >
+              <hr />
+            </Box>
+            <Box display="flex" justifyContent="space-between">
               <Typography
                 component="h2"
                 variant="h2"
-                sx={{ fontWeight: "400" }}
+                sx={{ fontWeight: "400", ml: { md: 30 } }}
               >
                 Total : $600
               </Typography>
@@ -74,7 +77,6 @@ const cart = () => {
                   fontSize: "32px",
                   fontWeight: "500",
                   px: "40px",
-                  //   py: "10 px",
                   borderRadius: "35px",
                   boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
                   border: "1px solid rgba(255, 255, 255, 0.26);",
@@ -82,24 +84,20 @@ const cart = () => {
               >
                 Pay
               </Button>
-            </Grid>
-            <Box sx={{ display: "flex" }}>
+            </Box>
+            <Box display="flex" sx={{ mt: { md: 8 } }}>
               <Typography
-                componet="h3"
-                variant="h3"
                 sx={{
-                  backgroundColor: " rgba(230, 189, 255, 0.37);",
-                  color: "white",
-                  fontWeight: "700",
-                  px: "60px",
-                  py: "8px",
-                  fontSize: "32px",
-                  mt: 29,
-                  mr: 2,
+                  whiteSpace: "nowrap",
+                  backgroundColor: "rgba(230, 189, 255, 0.37);",
                   borderRadius: "35px",
-                  textAlign: "center",
                   boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
                   border: "1px solid rgba(255, 255, 255, 0.26);",
+                  fontSize: { md: "32px" },
+                  px: "10px",
+                  ml: { md: 30 },
+                  mr: { md: 25 },
+                  mt: { xs: 5 },
                 }}
               >
                 bc1qsf8u0f7404thpwzskqcz2nstg6yjefrfrwdan5
@@ -107,22 +105,28 @@ const cart = () => {
               <Button
                 sx={{
                   backgroundColor: "rgba(230, 189, 255, 0.37);",
-                  color: "white",
-                  fontSize: "19px",
-                  fontWeight: "600",
-                  px: "40px",
-                  //   py: "0.5px",
-                  mt: 29,
-                  borderRadius: "30px",
+                  color: "#fff",
+                  fontWeight: "700",
+                  borderRadius: "35px",
+                  fontSize: "18px",
                   boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
                   border: "1px solid rgba(255, 255, 255, 0.26);",
+                  px: "10px",
+                  mt: { xs: 5 },
                 }}
               >
                 copy
               </Button>
             </Box>
           </Grid>
-          <Grid item md={4} sx={{ textAlign: "center" }}>
+
+          <Grid
+            item
+            md={4}
+            ms={12}
+            xs={12}
+            sx={{ textAlign: "center", mt: { md: 30 } }}
+          >
             <Box component="img" src="assets/WalletQr.png" />
             <Typography component="p">scan to pay </Typography>
           </Grid>
