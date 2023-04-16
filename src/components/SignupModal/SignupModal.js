@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent"; 
+import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Box, InputAdornment } from "@mui/material";
 import { useRegister } from "api";
@@ -20,7 +20,7 @@ export default function FormDialog() {
 		password: "",
 		telegram_id: "",
 		address: "",
-		phone: "",
+		phone_number: "",
 	});
 
 	const handleClickOpen = () => {
@@ -188,9 +188,12 @@ export default function FormDialog() {
 							<Box>
 								<TextField
 									onChange={(e) => {
-										setFormValues({ ...formValues, phone: e.target.value });
+										setFormValues({
+											...formValues,
+											phone_number: e.target.value,
+										});
 									}}
-									value={formValues.phone}
+									value={formValues.phone_number}
 									required
 									InputProps={{
 										autoComplete: "off",

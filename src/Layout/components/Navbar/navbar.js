@@ -21,10 +21,13 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import FormDialog from "@/components/SignupModal/SignupModal";
 import SigninDialog from "@/components/SigninModal/SigninModal";
+import { useUser } from "api";
 
 const drawerWidth = 240;
 const navItems = ["Alert Room", "Reviews", "Cart"];
 export default function PrimarySearchAppBar(props) {
+	const user = useUser();
+
 	const { window } = props;
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -95,16 +98,27 @@ export default function PrimarySearchAppBar(props) {
 			<MenuItem>
 				<Typography sx={{ mx: 1 }}>Contact us</Typography>
 			</MenuItem>
-			<MenuItem>
-				<Button sx={{ borderRadius: "20px" }} variant="outlined">
-					Sign in
-				</Button>
-			</MenuItem>
-			<MenuItem>
-				<Button sx={{ borderRadius: "20px" }} variant="contained">
-					Sign up
-				</Button>
-			</MenuItem>
+			{user.data ? (
+				<MenuItem>
+					<Button sx={{ borderRadius: "20px" }} variant="contained">
+						Cart
+					</Button>
+				</MenuItem>
+			) : (
+				<>
+					<MenuItem>
+						<Button sx={{ borderRadius: "20px" }} variant="outlined">
+							Sign in
+						</Button>
+					</MenuItem>
+					<MenuItem>
+						<Button sx={{ borderRadius: "20px" }} variant="contained">
+							Sign up
+						</Button>
+					</MenuItem>
+				</>
+			)}
+
 			<MenuItem onClick={handleProfileMenuOpen}>
 				<IconButton
 					size="large"
@@ -200,8 +214,16 @@ export default function PrimarySearchAppBar(props) {
 						/>
 						<Typography sx={{ mx: 1 }}>Contact us</Typography>
 
-						<SigninDialog />
-						<FormDialog />
+						{user.data ? (
+							<MenuItem>
+								<Button sx={{ borderRadius: "20px" }}>Cart</Button>
+							</MenuItem>
+						) : (
+							<>
+								<SigninDialog />
+								<FormDialog />
+							</>
+						)}
 					</Box>
 					<Box sx={{ display: { xs: "flex", md: "none" } }}>
 						<IconButton

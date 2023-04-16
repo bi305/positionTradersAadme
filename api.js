@@ -15,9 +15,10 @@ const apiClient = axios.create({
 apiClient.interceptors.request.use((config) => {
 	const user = sessionStorage.getItem("user");
 	if (user) {
-		const { token } = JSON.parse(user);
-		config.headers.Authorization = `Bearer ${token}`;
+		const { access_token } = JSON.parse(user);
+		config.headers.Authorization = `Bearer ${access_token}`;
 	}
+
 	return config;
 });
 
@@ -34,16 +35,19 @@ export function login(data) {
 export function logout() {
 	return apiClient.post("/logout");
 }
-
+export function getProducts() {
+	return apiClient.get('/backend/product/');
+  }
+  
+  export function useProducts() {
+	return useQuery('products', getProducts);
+  }
 // Define React Query hooks for each endpoint
 
 export function useRegister() {
 	// const queryClient = useQueryClient();
 	return useMutation(register, {
 		onSuccess: (response) => {
-			// Save user data to session storage
-			sessionStorage.setItem("user", JSON.stringify(response.data));
-			// Invalidate all queries to update user data globally
 			queryClient.invalidateQueries("user");
 		},
 	});
@@ -67,7 +71,6 @@ export function useLogout() {
 		onSuccess: () => {
 			// Remove user data and bearer token from session storage
 			sessionStorage.removeItem("user");
-			sessionStorage.removeItem("bearerToken");
 			// Invalidate all queries to update user data globally
 			queryClient.invalidateQueries("user");
 		},

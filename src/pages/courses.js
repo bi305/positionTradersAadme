@@ -2,8 +2,11 @@ import React from "react";
 import { Layout } from "@/Layout";
 import { Container, Grid, Typography, Box, Button } from "@mui/material";
 import Head from "next/head";
+import { useProducts } from "api";
 
-const courses = () => {
+const Courses = () => {
+	const { isLoading, isError, data: products, error } = useProducts();
+	console.log(products);
 	return (
 		<>
 			<Head>
@@ -105,7 +108,7 @@ const courses = () => {
 											py: "10px",
 										}}
 									>
-										$400 Lifetime
+										$ {products?.data[1]?.lifetime} Lifetime
 									</Button>
 								</Grid>
 								<Grid item md={6} xs={12}>
@@ -121,7 +124,7 @@ const courses = () => {
 											mt: { xs: "5px" },
 										}}
 									>
-										$200/monthly
+										$ {products?.data[1]?.monthly} monthly
 									</Button>
 								</Grid>
 							</Grid>
@@ -432,4 +435,4 @@ const courses = () => {
 	);
 };
 
-export default courses;
+export default Courses;
