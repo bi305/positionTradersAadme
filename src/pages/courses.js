@@ -233,7 +233,7 @@ const Courses = () => {
 											mr: 1,
 										}}
 									>
-										$400 Lifetime
+										$ {products?.data[0]?.monthly} monthly $400 Lifetime
 									</Button>
 								</Grid>
 								<Grid item xs={12} sm={6} md={2}>
