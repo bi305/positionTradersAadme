@@ -1,9 +1,8 @@
 {
-	"redirects": [
+	"routes": [
 		{
-			"source": "/(.*)",
-			"destination": "https://position-traders-aadme.vercel.app//$1",
-			"statusCode": 301
+			"src": "/api/v1/(.*)",
+			"dest": "https://position-traders-aadme.vercel.app//$1"
 		}
 	]
 }
