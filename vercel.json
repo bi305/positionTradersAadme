@@ -1,9 +1,11 @@
 {
-	"redirects": [
+	"rewrites": [
 		{
-			"source": "/(.*)",
-			"destination": "https://position-traders-aadme.vercel.app/$1",
-			"statusCode": 301
+			"source": "/api/:path*",
+			"destination": "http://13.49.159.135/api/v1/:path*",
+			"headers": {
+				"host": "13.49.159.135"
+			}
 		}
 	]
 }
