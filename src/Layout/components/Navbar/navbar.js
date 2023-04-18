@@ -241,9 +241,12 @@ export default function PrimarySearchAppBar(props) {
 										onClose={handleClose}
 									>
 										{cartData.length ? (
-											cartData?.map((item) => {
+											cartData?.map((item, index) => {
 												return (
-													<Paper sx={{ width: 220, maxWidth: "100%" }}>
+													<Paper
+														key={index}
+														sx={{ width: 220, maxWidth: "100%" }}
+													>
 														<MenuList>
 															<MenuItem>
 																<ListItemText>{item.name}</ListItemText>
