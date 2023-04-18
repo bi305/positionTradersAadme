@@ -2,11 +2,12 @@ import React from "react";
 import { Layout } from "@/Layout";
 import { Container, Grid, Typography, Box, Button } from "@mui/material";
 import Head from "next/head";
-import { useProducts } from "api";
+import { useCart, useProducts } from "api";
 
 const Courses = () => {
 	const { isLoading, isError, data: products, error } = useProducts();
-	console.log(products);
+	const { fetchProducts, deleteProduct, addProduct } = useCart();
+
 	return (
 		<>
 			<Head>
@@ -97,6 +98,9 @@ const Courses = () => {
 							>
 								<Grid item md={6} xs={12}>
 									<Button
+										onClick={() => {
+											addProduct(products?.data[1]);
+										}}
 										sx={{
 											backgroundImage:
 												"linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
@@ -113,6 +117,9 @@ const Courses = () => {
 								</Grid>
 								<Grid item md={6} xs={12}>
 									<Button
+										onClick={() => {
+											addProduct(products?.data[1]);
+										}}
 										sx={{
 											backgroundImage:
 												"linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
@@ -221,6 +228,9 @@ const Courses = () => {
 							<Grid container sx={{ pl: 15 }}>
 								<Grid item xs={12} sm={6} md={2}>
 									<Button
+										onClick={() => {
+											addProduct(products?.data[0]);
+										}}
 										sx={{
 											backgroundImage:
 												"linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
@@ -228,12 +238,10 @@ const Courses = () => {
 											borderRadius: "35px",
 											color: "#fff",
 											fontSize: "20px",
-											px: { xs: "15px", sm: "35px", md: "70px" },
-											py: "10px",
 											mr: 1,
 										}}
 									>
-										$ {products?.data[0]?.monthly} monthly $400 Lifetime
+										${products?.data[0]?.lifetime} Lifetime
 									</Button>
 								</Grid>
 								<Grid item xs={12} sm={6} md={2}>
@@ -241,20 +249,15 @@ const Courses = () => {
 										sx={{
 											backgroundImage:
 												"linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
-
 											borderRadius: "35px",
 											color: "#fff",
 											fontSize: "20px",
-											px: { xs: "15px", sm: "35px", md: "70px" },
-											py: "10px",
-											my: { xs: "10px" },
-											mr: 1,
 										}}
 									>
-										$400 Lifetime
+										${products?.data[0]?.monthly} monthly
 									</Button>
 								</Grid>
-								<Grid item xs={12} sm={6} md={2}>
+								{/* <Grid item xs={12} sm={6} md={2}>
 									<Button
 										sx={{
 											backgroundImage:
@@ -270,7 +273,7 @@ const Courses = () => {
 									>
 										$400 Lifetime
 									</Button>
-								</Grid>
+								</Grid> */}
 							</Grid>
 						</Grid>
 					</Grid>
@@ -359,38 +362,34 @@ const Courses = () => {
 							<Grid container>
 								<Grid item md={4}>
 									<Button
+										onClick={() => {
+											addProduct(products?.data[2]);
+										}}
 										sx={{
 											backgroundImage:
 												"linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
-
 											borderRadius: "35px",
 											color: "#fff",
 											fontSize: "20px",
-											px: { xs: "15px", sm: "35px", md: "70px" },
-											py: "10px",
-											ml: { xs: "20px" },
-											mt: { xs: "10px" },
-											mr: 1,
 										}}
 									>
-										$400 Lifetime
+										${products?.data[2]?.lifetime} Lifetime
 									</Button>
 								</Grid>
 								<Grid item md={4}>
 									<Button
+										onClick={() => {
+											addProduct(products?.data[2]);
+										}}
 										sx={{
 											backgroundImage:
 												"linear-gradient(180deg, rgba(251, 156, 247, 0.19) 9.67%, #FF00C7 100%) !important",
 											borderRadius: "35px",
 											color: "#fff",
 											fontSize: "20px",
-											px: { xs: "15px", sm: "35px", md: "70px" },
-											py: "10px",
-											mt: { xs: "10px" },
-											mr: 1,
 										}}
 									>
-										$200/Mothly
+										${products?.data[2]?.monthly} monthly
 									</Button>
 								</Grid>
 								<Grid

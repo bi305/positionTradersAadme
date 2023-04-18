@@ -7,11 +7,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
@@ -21,19 +21,31 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import FormDialog from "@/components/SignupModal/SignupModal";
 import SigninDialog from "@/components/SigninModal/SigninModal";
-import { useUser } from "api";
+import { useCart, useUser } from "api";
+import { ListItemIcon, Paper } from "@mui/material";
+import { Delete } from "@mui/icons-material";
 
 const drawerWidth = 240;
 const navItems = ["Alert Room", "Reviews", "Cart"];
 export default function PrimarySearchAppBar(props) {
 	const user = useUser();
+	const { cartData, deleteProduct } = useCart();
 
-	const { window } = props;
+	const [anchorEl1, setAnchorEl1] = React.useState(null);
+	const open = Boolean(anchorEl1);
+
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+	const handleClick = (event) => {
+		setAnchorEl1(event.currentTarget);
+	};
+	const handleClose = () => {
+		setAnchorEl1(null);
+	};
 
 	const handleProfileMenuOpen = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -56,7 +68,7 @@ export default function PrimarySearchAppBar(props) {
 		setMobileOpen((prevState) => !prevState);
 	};
 
-	const menuId = "primary-search-account-menu";
+	const menuId = "menu-id";
 	const renderMenu = (
 		<Menu
 			anchorEl={anchorEl}
@@ -78,7 +90,7 @@ export default function PrimarySearchAppBar(props) {
 		</Menu>
 	);
 
-	const mobileMenuId = "primary-search-account-menu-mobile";
+	const mobileMenuId = "menu-mobile-id";
 	const renderMobileMenu = (
 		<Menu
 			anchorEl={mobileMoreAnchorEl}
@@ -98,7 +110,7 @@ export default function PrimarySearchAppBar(props) {
 			<MenuItem>
 				<Typography sx={{ mx: 1 }}>Contact us</Typography>
 			</MenuItem>
-			{user.data ? (
+			{user?.data ? (
 				<MenuItem>
 					<Button sx={{ borderRadius: "20px" }} variant="contained">
 						Cart
@@ -157,9 +169,6 @@ export default function PrimarySearchAppBar(props) {
 		</Box>
 	);
 
-	const container =
-		window !== undefined ? () => window().document.body : undefined;
-
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position="fixed" sx={{ backgroundColor: "#26224D" }}>
@@ -215,9 +224,50 @@ export default function PrimarySearchAppBar(props) {
 						<Typography sx={{ mx: 1 }}>Contact us</Typography>
 
 						{user.data ? (
-							<MenuItem>
-								<Button sx={{ borderRadius: "20px" }}>Cart</Button>
-							</MenuItem>
+							<>
+								<Badge badgeContent={cartData.length}>
+									<Button
+										id="basic-button"
+										aria-controls={open ? "basic-menu" : undefined}
+										aria-expanded={open ? "true" : undefined}
+										onClick={handleClick}
+									>
+										Cart
+									</Button>
+									<Menu
+										id="basic-menu"
+										anchorEl={anchorEl1}
+										open={open}
+										onClose={handleClose}
+									>
+										{cartData.length ? (
+											cartData?.map((item) => {
+												return (
+													<Paper sx={{ width: 220, maxWidth: "100%" }}>
+														<MenuList>
+															<MenuItem>
+																<ListItemText>{item.name}</ListItemText>
+																<ListItemIcon
+																	sx={{
+																		display: "flex",
+																		justifyContent: "end",
+																	}}
+																>
+																	<Delete
+																		onClick={() => deleteProduct(item.id)}
+																	/>
+																</ListItemIcon>
+															</MenuItem>
+														</MenuList>
+													</Paper>
+												);
+											})
+										) : (
+											<MenuItem>Cart Is Empty</MenuItem>
+										)}
+									</Menu>
+								</Badge>
+							</>
 						) : (
 							<>
 								<SigninDialog />
@@ -239,9 +289,11 @@ export default function PrimarySearchAppBar(props) {
 					</Box>
 				</Toolbar>
 			</AppBar>
+
+			{/* This is Drawer on mobile screen*/}
+
 			<Box component="nav">
 				<Drawer
-					container={container}
 					variant="temporary"
 					open={mobileOpen}
 					onClose={handleDrawerToggle}

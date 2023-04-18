@@ -19,7 +19,6 @@ import { Layout } from "@/Layout";
 import { useUser } from "api";
 
 export default function Home() {
-	console.log(useUser);
 	const settings = {
 		dots: true,
 		infinite: false,
