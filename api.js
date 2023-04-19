@@ -69,14 +69,13 @@ export function useLogin() {
 
 export function useLogout() {
 	const queryClient = useQueryClient();
-	return useMutation(logout, {
-		onSuccess: () => {
-			// Remove user data and bearer token from session storage
-			sessionStorage.removeItem("user");
-			// Invalidate all queries to update user data globally
-			queryClient.invalidateQueries("user");
-		},
-	});
+	try {
+		sessionStorage.removeItem("user");
+	} catch (error) {
+		console.error("Error removing user from sessionStorage: ", error);
+	}
+
+	queryClient.invalidateQueries("user");
 }
 
 export function useUser() {
@@ -99,17 +98,41 @@ export function useCart() {
 		if (cartData) {
 			const cart = JSON.parse(cartData);
 			// check if the product is already in the cart
-			if (cart.some((p) => p.id === product.id)) {
-				throw new Error("Product is already in cart");
+			const existingProduct = cart.find((p) => p.id === product.id);
+			if (existingProduct) {
+				// update subscription type and price
+				const updatedProduct = {
+					...existingProduct,
+					subscription_type: product.subscription_type,
+					subscription: product.subscription_type === "lifetime" ? 400 : 200,
+				};
+				const updatedCart = cart.map((p) =>
+					p.id === product.id ? updatedProduct : p
+				);
+				sessionStorage.setItem("cart", JSON.stringify(updatedCart));
+				queryClient.invalidateQueries("cart");
+				return updatedCart;
+			} else {
+				// add new product with subscription type and subscription
+				const newProduct = {
+					...product,
+					subscription: product.subscription_type === "lifetime" ? 400 : 200,
+				};
+				const updatedCart = [...cart, newProduct];
+				sessionStorage.setItem("cart", JSON.stringify(updatedCart));
+				queryClient.invalidateQueries("cart");
+				return updatedCart;
 			}
-			const updatedCart = [...cart, product];
-			sessionStorage.setItem("cart", JSON.stringify(updatedCart));
-			queryClient.invalidateQueries("cart");
-			return updatedCart;
 		} else {
-			sessionStorage.setItem("cart", JSON.stringify([product]));
+			// create new cart with new product and subscription type and subscription
+			const newProduct = {
+				...product,
+				subscription: product.subscription_type === "lifetime" ? 400 : 200,
+			};
+			const newCart = [newProduct];
+			sessionStorage.setItem("cart", JSON.stringify(newCart));
 			queryClient.invalidateQueries("cart");
-			return [product];
+			return newCart;
 		}
 	});
 
@@ -133,82 +156,3 @@ export function useCart() {
 		deleteProduct: deleteProductMutation.mutate,
 	};
 }
-// export function useCart() {
-// 	const fetchProducts = async () => {
-// 		const productsData = sessionStorage.getItem("products");
-// 		return productsData ? JSON.parse(productsData) : [];
-// 	};
-
-// 	const deleteProduct = async (id) => {
-// 		const productsData = sessionStorage.getItem("products");
-// 		if (productsData) {
-// 			const products = JSON.parse(productsData);
-// 			const updatedProducts = products.filter((p) => p.id !== id);
-// 			sessionStorage.setItem("products", JSON.stringify(updatedProducts));
-// 		}
-// 	};
-
-// 	const addProduct = async (product) => {
-// 		const productsData = sessionStorage.getItem("products");
-// 		if (productsData) {
-// 			const products = JSON.parse(productsData);
-// 			const updatedProducts = [...products, product];
-// 			sessionStorage.setItem("products", JSON.stringify(updatedProducts));
-// 		} else {
-// 			sessionStorage.setItem("products", JSON.stringify([product]));
-// 		}
-// 	};
-
-// 	return {
-// 		fetchProducts,
-// 		deleteProduct,
-// 		addProduct,
-// 	};
-// }
-
-// export function useCart() {
-// 	// useQuery hook fetches products data from sessionStorage and returns it
-// 	// if it exists or returns an empty array if it doesn't exist
-// 	const { data: productsData } = useQuery("products", async () => {
-// 		const data = sessionStorage.getItem("products");
-// 		return data ? JSON.parse(data) : [];
-// 	});
-
-// 	// useMutation hook creates a mutation to delete a product from sessionStorage
-// 	const deleteProductMutation = useMutation(async (id) => {
-// 		const productsData = sessionStorage.getItem("products");
-// 		if (productsData) {
-// 			const products = JSON.parse(productsData);
-// 			const updatedProducts = products.filter((p) => p.id !== id);
-// 			sessionStorage.setItem("products", JSON.stringify(updatedProducts));
-// 			return updatedProducts;
-// 		}
-// 		return [];
-// 	});
-
-// 	// useMutation hook creates a mutation to add a product to sessionStorage
-// 	const addProductMutation = useMutation(async (product) => {
-// 		const productsData = sessionStorage.getItem("products");
-// 		if (productsData) {
-// 			const products = JSON.parse(productsData);
-// 			// check if the product is already in the cart
-// 			if (products.some((p) => p.id === product.id)) {
-// 				throw new Error("Product is already in cart");
-// 			}
-// 			const updatedProducts = [...products, product];
-// 			sessionStorage.setItem("products", JSON.stringify(updatedProducts));
-// 			return updatedProducts;
-// 		} else {
-// 			sessionStorage.setItem("products", JSON.stringify([product]));
-// 			return [product];
-// 		}
-// 	});
-
-// 	return {
-// 		productsData,
-// 		deleteProduct: deleteProductMutation.mutate,
-// 		addProduct: addProductMutation.mutate,
-// 		addProductLoading: addProductMutation.isLoading,
-// 		addProductError: addProductMutation.error,
-// 	};
-// }

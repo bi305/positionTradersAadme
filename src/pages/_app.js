@@ -22,6 +22,7 @@ const MyApp = (props) => {
 			<CacheProvider value={emotionCache}>
 				<ThemeProvider theme={lightTheme}>
 					<CssBaseline />
+
 					<Component {...pageProps} />
 					<ReactQueryDevtools initialIsOpen={false} />
 				</ThemeProvider>

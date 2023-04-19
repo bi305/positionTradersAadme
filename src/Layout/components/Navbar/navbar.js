@@ -24,6 +24,7 @@ import SigninDialog from "@/components/SigninModal/SigninModal";
 import { useCart, useUser } from "api";
 import { ListItemIcon, Paper } from "@mui/material";
 import { Delete } from "@mui/icons-material";
+import { useRouter } from "next/router";
 
 const drawerWidth = 240;
 const navItems = ["Alert Room", "Reviews", "Cart"];
@@ -168,7 +169,7 @@ export default function PrimarySearchAppBar(props) {
 			</List>
 		</Box>
 	);
-
+	const router = useRouter();
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position="fixed" sx={{ backgroundColor: "#26224D" }}>
@@ -241,30 +242,35 @@ export default function PrimarySearchAppBar(props) {
 										onClose={handleClose}
 									>
 										{cartData.length ? (
-											cartData?.map((item, index) => {
-												return (
-													<Paper
-														key={index}
-														sx={{ width: 220, maxWidth: "100%" }}
-													>
-														<MenuList>
-															<MenuItem>
-																<ListItemText>{item.name}</ListItemText>
-																<ListItemIcon
-																	sx={{
-																		display: "flex",
-																		justifyContent: "end",
-																	}}
-																>
-																	<Delete
-																		onClick={() => deleteProduct(item.id)}
-																	/>
-																</ListItemIcon>
-															</MenuItem>
-														</MenuList>
-													</Paper>
-												);
-											})
+											<>
+												{cartData?.map((item, index) => {
+													return (
+														<Paper
+															key={index}
+															sx={{ width: 220, maxWidth: "100%" }}
+														>
+															<MenuList>
+																<MenuItem>
+																	<ListItemText>{item.name}</ListItemText>
+																	<ListItemIcon
+																		sx={{
+																			display: "flex",
+																			justifyContent: "end",
+																		}}
+																	>
+																		<Delete
+																			onClick={() => deleteProduct(item.id)}
+																		/>
+																	</ListItemIcon>
+																</MenuItem>
+															</MenuList>
+														</Paper>
+													);
+												})}
+												<Button onClick={() => router.push("/cart")}>
+													Pay Now
+												</Button>
+											</>
 										) : (
 											<MenuItem>Cart Is Empty</MenuItem>
 										)}
