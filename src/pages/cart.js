@@ -19,7 +19,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import { Upload } from "@mui/icons-material";
 
-const cart = () => {
+const Cart = () => {
 	const { cartData } = useCart();
 	const sum = cartData?.reduce((total, item) => total + +item.subscription, 0);
 	const [isCopied, setIsCopied] = React.useState(false);
@@ -83,9 +83,10 @@ const cart = () => {
 						xs={12}
 						sx={{ mt: { md: 40 }, ml: { md: 30 } }}
 					>
-						{cartData?.map((item) => {
+						{cartData?.map((item, index) => {
 							return (
 								<Box
+									key={index}
 									sx={{
 										mb: 2,
 										backgroundColor: " rgba(230, 189, 255, 0.37);",
@@ -238,4 +239,4 @@ const cart = () => {
 	);
 };
 
-export default cart;
+export default Cart;
