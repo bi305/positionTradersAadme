@@ -9,18 +9,24 @@ import {
 	TextField,
 } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 import Head from "next/head";
-import { useCart } from "api";
+import { useCart, useSubscription } from "api";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import { Upload } from "@mui/icons-material";
+import { useQuery } from "react-query";
 
 const Cart = () => {
+	const data = useSubscription();
 	const { cartData } = useCart();
+	const _subs = [];
+	const sub = cartData?.map((element) => {
+		_subs.push({
+			subscription_type: element.subscription_type.toUpperCase(),
+			product: element.id,
+		});
+	});
+
 	const sum = cartData?.reduce((total, item) => total + +item.subscription, 0);
 	const [isCopied, setIsCopied] = React.useState(false);
 
@@ -40,7 +46,9 @@ const Cart = () => {
 
 	const handleSubmit = () => {
 		setOpen(false);
-		mutate();
+		data.mutate({
+			subscriptions: _subs,
+		});
 	};
 
 	const handleClose = () => {
@@ -169,17 +177,10 @@ const Cart = () => {
 										variant="outlined"
 										fullWidth
 									/>
-									<Button
-										onClick={handleSubmit}
-										variant="contained"
-										// disabled={!image || isLoading || isSuccess}
-									>
-										{/* {isLoading ? "Uploading..." : "Upload"} */}
+									<Button onClick={handleSubmit} variant="contained">
 										Upload
 									</Button>
 								</>
-								{/* {isError && <div>Error: {error.message}</div>}
-									{isSuccess && <div>Image uploaded successfully</div>} */}
 							</Dialog>
 						</Box>
 						<Grid item md={8} xs={12}>

@@ -40,6 +40,16 @@ export function getProducts() {
 	return apiClient.get("/backend/product/");
 }
 
+export function subscriptions(data) {
+	return apiClient.post("/backend/payment/", data);
+}
+export function getSubscriptionId(data) {
+	return apiClient.get("/backend/payment/");
+}
+
+export function useGetSubscription() {
+	return useQuery("subscriptionId", getSubscriptionId);
+}
 // Define React Query hooks for each endpoint
 
 export function useProducts() {
@@ -47,7 +57,7 @@ export function useProducts() {
 }
 
 export function useRegister() {
-	// const queryClient = useQueryClient();
+	const queryClient = useQueryClient();
 	return useMutation(register, {
 		onSuccess: (response) => {
 			queryClient.invalidateQueries("user");
@@ -155,4 +165,14 @@ export function useCart() {
 		addProductError: addProductMutation.error,
 		deleteProduct: deleteProductMutation.mutate,
 	};
+}
+
+export function useSubscription() {
+	const queryClient = useQueryClient();
+	const { data } = useGetSubscription();
+	return useMutation(subscriptions, {
+		onSuccess: () => {
+			console.log(data);
+		},
+	});
 }
