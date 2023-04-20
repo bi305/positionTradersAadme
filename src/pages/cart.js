@@ -182,26 +182,30 @@ const Cart = () => {
                       />
                     )}
                   </Box>
-                  <TextField
+                  <Box
+                    sx={{ p: 2 }}
+                    component="input"
                     type="file"
                     onChange={handleImageChange}
                     variant="outlined"
                     fullWidth
                   />
-                  <Button
-                    onClick={handleSubmit}
-                    variant="contained"
-                    sx={{
-                      backgroundColor: "#000000;",
-                      color: "#fff",
-                      borderRadius: "20px",
-                      width: "auto",
-                    }}
-                    // disabled={!image || isLoading || isSuccess}
-                  >
-                    {/* {isLoading ? "Uploading..." : "Upload"} */}
-                    Upload
-                  </Button>
+                  <Box sx={{ textAlign: "center", pt: 1 }}>
+                    <Button
+                      onClick={handleSubmit}
+                      variant="contained"
+                      sx={{
+                        backgroundColor: "#000000;",
+                        color: "#fff",
+                        borderRadius: "20px",
+                        width: "60%",
+                      }}
+                      // disabled={!image || isLoading || isSuccess}
+                    >
+                      {/* {isLoading ? "Uploading..." : "Upload"} */}
+                      Upload to Verify
+                    </Button>
+                  </Box>
                 </>
                 {/* {isError && <div>Error: {error.message}</div>}
 									{isSuccess && <div>Image uploaded successfully</div>} */}
@@ -211,7 +215,6 @@ const Cart = () => {
               <Box display="flex" sx={{ mt: { md: 8 } }}>
                 <Typography
                   sx={{
-                    //   whiteSpace: "nowrap",
                     backgroundColor: "rgba(230, 189, 255, 0.37);",
                     borderRadius: "35px",
                     boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
