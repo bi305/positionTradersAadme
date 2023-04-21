@@ -14,7 +14,13 @@ import { ReactQueryDevtools } from "react-query/devtools";
 const clientSideEmotionCache = createEmotionCache();
 
 const MyApp = (props) => {
-	const queryClient = new QueryClient();
+	const queryClient = new QueryClient({
+		defaultOptions: {
+			queries: {
+				refetchOnWindowFocus: false,
+			},
+		},
+	});
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
 	return (

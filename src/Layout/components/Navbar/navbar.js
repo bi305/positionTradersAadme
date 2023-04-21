@@ -25,9 +25,10 @@ import { useCart, useUser } from "api";
 import { ListItemIcon, Paper } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const drawerWidth = 240;
-const navItems = ["Alert Room", "Reviews", "Cart"];
+const navItems = [{ lable: "Alert Room", link: "/products" }];
 export default function PrimarySearchAppBar(props) {
 	const user = useUser();
 	const { cartData, deleteProduct } = useCart();
@@ -158,7 +159,7 @@ export default function PrimarySearchAppBar(props) {
 					<ListItem key={item} disablePadding>
 						<ListItemButton sx={{ textAlign: "center" }}>
 							<ListItemText
-								primary={item}
+								primary={item.lable}
 								onClick={() => {
 									"#review";
 								}}
@@ -196,7 +197,9 @@ export default function PrimarySearchAppBar(props) {
 					<Box sx={{ display: { xs: "none", md: "flex" } }}>
 						{navItems.map((item) => (
 							<Button key={item} sx={{ color: "#fff" }}>
-								{item}
+								<Link href={item.link} style={{ color: "white !important" }}>
+									{item.lable}
+								</Link>
 							</Button>
 						))}
 					</Box>

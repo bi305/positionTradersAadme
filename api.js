@@ -43,15 +43,32 @@ export function getProducts() {
 export function subscriptions(data) {
 	return apiClient.post("/backend/payment/", data);
 }
-export function getSubscriptionId(data) {
+export function getSubscriptionId() {
 	return apiClient.get("/backend/payment/");
 }
+export function uploadedPaymentProof(data) {
+	const formData = new FormData();
+	formData.append("param", data.param);
+	formData.append("payment_image", data.file);
+	return apiClient.put(`/backend/payment/${data.param}`, formData, {
+		headers: { "Content-Type": "multipart/form-data" },
+	});
+}
 
+export function usePaymentProof() {
+	const queryClient = useQueryClient();
+	return useMutation(uploadedPaymentProof, {
+		onSuccess: () => {
+			sessionStorage.removeItem("cart");
+			queryClient.invalidateQueries("subscription");
+			queryClient.invalidateQueries("cart");
+		},
+	});
+}
+// Define React Query hooks for each endpoint
 export function useGetSubscription() {
 	return useQuery("subscriptionId", getSubscriptionId);
 }
-// Define React Query hooks for each endpoint
-
 export function useProducts() {
 	return useQuery("products", getProducts);
 }
@@ -168,11 +185,7 @@ export function useCart() {
 }
 
 export function useSubscription() {
-	const queryClient = useQueryClient();
-	const { data } = useGetSubscription();
 	return useMutation(subscriptions, {
-		onSuccess: () => {
-			console.log(data);
-		},
+		onSuccess: () => {},
 	});
 }

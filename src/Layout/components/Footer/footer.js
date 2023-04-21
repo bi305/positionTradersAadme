@@ -11,11 +11,11 @@ const Footer = () => {
 				display: "flex",
 				justifyContent: "center",
 				pt: 30,
-				pb:10
+				pb: 10,
 			}}
 		>
 			<Grid container maxWidth="xl">
-				<Grid item md={3}>
+				<Grid item xs={12} sm={6} md={3} my={2}>
 					<Box>
 						<Typography component="h4" variant="h6">
 							Product
@@ -28,7 +28,7 @@ const Footer = () => {
 						<Typography component="p">Trading Course</Typography>
 					</Box>
 				</Grid>
-				<Grid item md={3}>
+				<Grid item xs={12} sm={6} md={3} my={2}>
 					<Box>
 						<Typography component="h4" variant="h6">
 							About
@@ -36,7 +36,7 @@ const Footer = () => {
 						<Typography component="p">Press & Media</Typography>
 					</Box>
 				</Grid>
-				<Grid item md={3}>
+				<Grid item xs={12} sm={6} md={3} my={2}>
 					<Box>
 						<Typography component="h4" variant="h6">
 							Help
@@ -44,7 +44,7 @@ const Footer = () => {
 						<Typography component="p">Contact support</Typography>
 					</Box>
 				</Grid>
-				<Grid item md={3}>
+				<Grid item xs={12} sm={6} md={3} my={2}>
 					<Box>
 						<Typography component="h4" variant="h6">
 							Legal, Privacy and Security

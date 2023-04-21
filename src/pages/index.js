@@ -147,13 +147,13 @@ export default function Home() {
 							<Slider {...settings} arrows={false}>
 								<Box
 									sx={{
-										width: "396px !important",
-										height: "400px",
+										width: { xs: "210px !important", md: "396px !important" },
+										height: { xs: "100%", md: "400px" },
 										background: "rgba(86, 86, 146, 0.36)",
 										border: "1px solid #565692",
 										boxShadow: "0px 0px 25px #565692",
 										borderRadius: "73px",
-										p: 5,
+										p: { xs: 2, md: 5 },
 										color: "#ffffff",
 									}}
 								>
@@ -166,7 +166,7 @@ export default function Home() {
 										>
 											<Avatar
 												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
-												sx={{ width: 90, height: 90 }}
+												sx={{ width: 56, height: 56 }}
 											/>
 											<Box>
 												<Rating name="read-only" value={5} readOnly />
@@ -182,13 +182,13 @@ export default function Home() {
 								</Box>
 								<Box
 									sx={{
-										width: "396px !important",
-										height: "400px",
+										width: { xs: "210px !important", md: "396px !important" },
+										height: { xs: "100%", md: "400px" },
 										background: "rgba(86, 86, 146, 0.36)",
 										border: "1px solid #565692",
 										boxShadow: "0px 0px 25px #565692",
 										borderRadius: "73px",
-										p: 5,
+										p: { xs: 2, md: 5 },
 										color: "#ffffff",
 									}}
 								>
@@ -201,7 +201,7 @@ export default function Home() {
 										>
 											<Avatar
 												src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=756&q=80"
-												sx={{ width: 90, height: 90 }}
+												sx={{ width: 56, height: 56 }}
 											/>
 											<Box>
 												<Rating name="read-only" value={5} readOnly />
@@ -219,13 +219,13 @@ export default function Home() {
 								</Box>
 								<Box
 									sx={{
-										width: "396px !important",
-										height: "400px",
+										width: { xs: "210px !important", md: "396px !important" },
+										height: { xs: "100%", md: "400px" },
 										background: "rgba(86, 86, 146, 0.36)",
 										border: "1px solid #565692",
 										boxShadow: "0px 0px 25px #565692",
 										borderRadius: "73px",
-										p: 5,
+										p: { xs: 2, md: 5 },
 										color: "#ffffff",
 									}}
 								>
@@ -393,7 +393,7 @@ export default function Home() {
 								We have generous tiers available to get you started right away.
 							</Typography>{" "}
 						</Grid>
-						<Grid item md={6}>
+						<Grid item xs={12} sx={6} md={6}>
 							<Box display="flex" justifyContent="end">
 								<Image src={B} />
 							</Box>
