@@ -28,7 +28,7 @@ import { useQueryClient } from "react-query";
 const Cart = () => {
 	const _subs = [];
 	const data = useSubscription();
-	const { cartData } = useCart();
+	const { cartData } = useCart(); 
 	const payment = usePaymentProof();
 	const router = useRouter();
 	const [isCopied, setIsCopied] = React.useState(false);
@@ -83,7 +83,6 @@ const Cart = () => {
 			queryClient.invalidateQueries("cart");
 			router.push("/");
 		}, 2000);
-		clearTimeout(timeoutId);
 	};
 
 	const handleClose = () => {
