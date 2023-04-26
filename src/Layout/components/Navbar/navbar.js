@@ -225,7 +225,15 @@ export default function PrimarySearchAppBar(props) {
 							flexItem
 							color="#656D78"
 						/>
-						<Typography sx={{ mx: 1 }}>Contact us</Typography>
+						<Typography sx={{ mx: 1 }}>
+							<Box
+								sx={{ color: "inherit" }}
+								component="a"
+								href="mailto:positiontradersmanagement@gmail.com"
+							>
+								Contact us
+							</Box>
+						</Typography>
 
 						{user.data ? (
 							<>

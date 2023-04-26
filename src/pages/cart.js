@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	Container,
 	Grid,
@@ -11,6 +11,7 @@ import {
 import Dialog from "@mui/material/Dialog";
 import Head from "next/head";
 import {
+	apiClient,
 	useCart,
 	useGetSubscription,
 	usePaymentProof,
@@ -22,17 +23,28 @@ import { Upload } from "@mui/icons-material";
 import { useQuery } from "react-query";
 import { useRouter } from "next/router";
 
+import { useQueryClient } from "react-query";
+
 const Cart = () => {
 	const _subs = [];
 	const data = useSubscription();
 	const { cartData } = useCart();
-	const { data: ids } = useGetSubscription();
 	const payment = usePaymentProof();
 	const router = useRouter();
 	const [isCopied, setIsCopied] = React.useState(false);
 	const [open, setOpen] = React.useState(false);
 	const [image, setImage] = React.useState(null);
 	const [previewUrl, setPreviewUrl] = React.useState(null);
+	const queryClient = useQueryClient();
+
+	const [run, setRun] = useState(false);
+
+	function getSubscriptionId() {
+		return apiClient.get("/backend/payment/");
+	}
+	const { data: ids } = useQuery("subscriptionId", getSubscriptionId, {
+		enabled: run,
+	});
 
 	cartData?.map((element) => {
 		_subs.push({
@@ -55,15 +67,23 @@ const Cart = () => {
 		createPreviewUrl(e.target.files[0]);
 	};
 
-	const handleSubmit = () => {
-		const reversedIds = ids?.data?.reverse();
+	const handleSubmit = async () => {
 		setOpen(false);
-		data.mutate({
+		setRun(true);
+		const results = await data.mutateAsync({
 			subscriptions: _subs,
 		});
+		console.log(results?.data?.data?.id);
+		await new Promise((resolve) => setTimeout(resolve, 1000));
 
-		payment.mutate({ param: reversedIds[0]?.id, file: image });
-		router.push("/");
+		const timeoutId = setTimeout(() => {
+			payment.mutate({ param: results?.data?.data?.id, file: image });
+			sessionStorage.removeItem("cart");
+			queryClient.invalidateQueries("subscription");
+			queryClient.invalidateQueries("cart");
+			router.push("/");
+		}, 2000);
+		clearTimeout(timeoutId);
 	};
 
 	const handleClose = () => {

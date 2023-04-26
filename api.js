@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "react-query";
 const API_BASE_URL = "https://positiontradersacademy.com/api/v1";
 
 // Create an instance of Axios with default settings
-const apiClient = axios.create({
+export const apiClient = axios.create({
 	baseURL: API_BASE_URL,
 	headers: {
 		"Content-Type": "application/json",
@@ -66,9 +66,7 @@ export function usePaymentProof() {
 	});
 }
 // Define React Query hooks for each endpoint
-export function useGetSubscription() {
-	return useQuery("subscriptionId", getSubscriptionId);
-}
+
 export function useProducts() {
 	return useQuery("products", getProducts);
 }
@@ -188,4 +186,8 @@ export function useSubscription() {
 	return useMutation(subscriptions, {
 		onSuccess: () => {},
 	});
+}
+
+export function useGetSubscription() {
+	return useQuery("subscriptionId", getSubscriptionId);
 }
